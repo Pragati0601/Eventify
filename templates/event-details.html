@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ event.name }} - Eventify</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Eventify
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/calendar">Calendar</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <a href="/login" class="login-btn">Login</a>
+            <a href="/register" class="register-btn">Register</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Event Details -->
+
+    <section class="events-section">
+
+        <h1>{{ event.name }}</h1>
+
+        <p class="section-description">
+            Explore complete information about this event.
+        </p>
+
+
+        <div class="event-container">
+
+            <div class="event-card">
+
+                <div class="event-image">
+                    {{ event.icon }}
+                </div>
+
+                <div class="event-info">
+
+                    <h2>{{ event.name }}</h2>
+
+                    <p>
+                        📅 <strong>Date:</strong>
+                        {{ event.date }}
+                    </p>
+
+                    <p>
+                        ⏰ <strong>Time:</strong>
+                        {{ event.time }}
+                    </p>
+
+                    <p>
+                        📍 <strong>Location:</strong>
+                        {{ event.location }}
+                    </p>
+
+                    <p>
+                        👤 <strong>Organizer:</strong>
+                        {{ event.organizer }}
+                    </p>
+
+                    <p>
+                        🎟️ <strong>Available Seats:</strong>
+                        {{ event.seats }}
+                    </p>
+
+                    <br>
+
+                    <!-- Dynamic Event Registration -->
+
+                    <a href="/register-event?event={{ event_key }}"
+                       class="details-btn">
+                        Register for Event
+                    </a>
+
+
+                    <!-- Back -->
+
+                    <a href="/events"
+                       class="details-btn">
+                        Back to Events
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <h3>Eventify</h3>
+
+        <p>
+            Event Discovery & Management System
+        </p>
+
+        <p>
+            © 2026 Eventify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

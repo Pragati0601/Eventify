@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - Eventify</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Eventify
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/calendar">Calendar</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+
+            {% if session.get("user_id") %}
+
+                <span>Welcome, {{ session.get("user_name") }}</span>
+                <a href="/logout" class="register-btn">Logout</a>
+
+            {% else %}
+
+                <a href="/login" class="login-btn">Login</a>
+                <a href="/register" class="register-btn">Register</a>
+
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+
+    <!-- Contact Section -->
+    <section class="events-section">
+
+        <h2>Contact Us</h2>
+
+        <p class="section-description">
+            Have a question or need help? Get in touch with the Eventify team.
+        </p>
+
+
+        <div class="event-container">
+
+            <!-- Email -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    📧
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Email</h3>
+
+                    <p>
+                        support@eventify.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Phone -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    📞
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Phone</h3>
+
+                    <p>
+                        +91 98765 43210
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Location -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    📍
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Location</h3>
+
+                    <p>
+                        Maharashtra, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Support -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    💬
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Support</h3>
+
+                    <p>
+                        Our team is available to help you with
+                        event registration and other queries.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>Eventify</h3>
+
+        <p>
+            Event Discovery & Management System
+        </p>
+
+        <p>
+            © 2026 Eventify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

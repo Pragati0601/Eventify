@@ -1,0 +1,113 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register - Eventify</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Eventify
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Events</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+            <a href="/login" class="login-btn">Login</a>
+        </div>
+
+    </nav>
+
+
+    <section class="registration-section">
+
+        <div class="registration-box">
+
+            <h1>Create Account</h1>
+
+            <p>Register yourself on Eventify</p>
+
+            <form method="POST" action="/register">
+
+                <label>Full Name</label>
+
+                <input type="text"
+                       name="name"
+                       placeholder="Enter your full name"
+                       required>
+
+
+                <label>Email</label>
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter your email"
+                       required>
+
+
+                <label>Phone Number</label>
+
+                <input type="tel"
+                       name="phone"
+                       placeholder="Enter your phone number"
+                       required>
+
+
+                <label>Password</label>
+
+                <input type="password"
+                       name="password"
+                       placeholder="Create password"
+                       required>
+
+
+                <label>Confirm Password</label>
+
+                <input type="password"
+                       name="confirm_password"
+                       placeholder="Confirm password"
+                       required>
+
+
+                <button type="submit">
+                    Create Account
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <h3>Eventify</h3>
+
+        <p>
+            Event Discovery & Management System
+        </p>
+
+        <p>
+            © 2026 Eventify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
+```

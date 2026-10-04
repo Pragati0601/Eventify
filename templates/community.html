@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Community - Eventify</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            Eventify
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/calendar">Calendar</a></li>
+            <li><a href="/community">Community</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+
+        <div class="auth-buttons">
+
+            {% if session.get("user_id") %}
+
+                <span>Welcome, {{ session.get("user_name") }}</span>
+                <a href="/logout" class="register-btn">Logout</a>
+
+            {% else %}
+
+                <a href="/login" class="login-btn">Login</a>
+                <a href="/register" class="register-btn">Register</a>
+
+            {% endif %}
+
+        </div>
+
+    </nav>
+
+
+    <!-- Community Section -->
+    <section class="events-section">
+
+        <h2>Eventify Community</h2>
+
+        <p class="section-description">
+            Connect with other event participants and discover new opportunities.
+        </p>
+
+
+        <div class="event-container">
+
+            <!-- Community Card 1 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    👥
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Meet Event Participants</h3>
+
+                    <p>
+                        Connect with people who are interested in the same events.
+                    </p>
+
+                    <a href="/events"
+                       class="details-btn">
+                        Explore Events
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Community Card 2 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    💬
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Share & Discuss</h3>
+
+                    <p>
+                        Share your event experiences and discuss ideas with the community.
+                    </p>
+
+                    <a href="/register"
+                       class="details-btn">
+                        Join Community
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Community Card 3 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    🤝
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Build Connections</h3>
+
+                    <p>
+                        Meet new people, learn new skills and build useful connections.
+                    </p>
+
+                    <a href="/events"
+                       class="details-btn">
+                        Find Events
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Community Card 4 -->
+            <div class="event-card">
+
+                <div class="event-image">
+                    🌟
+                </div>
+
+                <div class="event-info">
+
+                    <h3>Be Part of Eventify</h3>
+
+                    <p>
+                        Register for events and become an active member of Eventify.
+                    </p>
+
+                    <a href="/register"
+                       class="details-btn">
+                        Create Account
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <h3>Eventify</h3>
+
+        <p>
+            Event Discovery & Management System
+        </p>
+
+        <p>
+            © 2026 Eventify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>

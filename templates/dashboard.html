@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Eventify</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <style>
+
+        .dashboard-section {
+            min-height: 650px;
+            padding: 60px 7%;
+        }
+
+        .dashboard-header {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h1 {
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .dashboard-header p {
+            color: #666;
+        }
+
+        .dashboard-container {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .dashboard-card {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .dashboard-card h2 {
+            margin-bottom: 15px;
+            color: #5b35d5;
+        }
+
+        .dashboard-card p {
+            color: #666;
+            margin: 8px 0;
+        }
+
+        .dashboard-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 11px 18px;
+            background: #5b35d5;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .dashboard-btn:hover {
+            background: #4725b8;
+        }
+
+        .registered-event {
+            background: #f5f3ff;
+            padding: 15px;
+            margin-top: 12px;
+            border-radius: 8px;
+            border-left: 4px solid #5b35d5;
+        }
+
+        .registered-event h3 {
+            margin-bottom: 6px;
+            color: #333;
+        }
+
+        .registered-event p {
+            margin: 4px 0;
+            color: #666;
+        }
+
+        .no-event {
+            color: #888;
+            font-style: italic;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Eventify
+        </div>
+
+        <ul class="nav-links">
+
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/events">Events</a>
+            </li>
+
+            <li>
+                <a href="/calendar">Calendar</a>
+            </li>
+
+            <li>
+                <a href="/community">Community</a>
+            </li>
+
+            <li>
+                <a href="/about">About</a>
+            </li>
+
+            <li>
+                <a href="/contact">Contact</a>
+            </li>
+
+        </ul>
+
+        <div class="auth-buttons">
+
+    <a href="/dashboard"
+       class="login-btn">
+        Dashboard
+    </a>
+
+    <a href="/logout"
+       class="register-btn">
+        Logout
+    </a>
+
+</div>
+    </nav>
+
+
+    <!-- =========================
+         DASHBOARD
+    ========================== -->
+
+    <section class="dashboard-section">
+
+        <div class="dashboard-header">
+
+            <h1>
+                Welcome to Your Dashboard 👋
+            </h1>
+
+            <p>
+                Manage your Eventify account and explore your events.
+            </p>
+
+        </div>
+
+
+        <div class="dashboard-container">
+
+
+            <!-- PROFILE -->
+
+            <div class="dashboard-card">
+
+                <h2>
+                    👤 My Profile
+                </h2>
+
+                <p>
+                    <strong>Name:</strong>
+                    {{ session.get("user_name") }}
+                </p>
+
+                <p>
+                    <strong>Email:</strong>
+                    {{ session.get("user_email") }}
+                </p>
+
+                <a href="/"
+                   class="dashboard-btn">
+                    Back to Home
+                </a>
+
+            </div>
+
+
+            <!-- MY EVENTS -->
+
+            <div class="dashboard-card">
+
+                <h2>
+                    🎟️ My Events
+                </h2>
+
+                {% if registered_events %}
+
+                    {% for event in registered_events %}
+
+                        <div class="registered-event">
+
+                            <h3>
+                                {{ event[3] }}
+                            </h3>
+
+                            <p>
+                                <strong>Name:</strong>
+                                {{ event[0] }}
+                            </p>
+
+                            <p>
+                                <strong>Phone:</strong>
+                                {{ event[2] }}
+                            </p>
+
+                        </div>
+
+                    {% endfor %}
+
+                {% else %}
+
+                    <p class="no-event">
+                        You have not registered for any event yet.
+                    </p>
+
+                    <a href="/events"
+                       class="dashboard-btn">
+                        Explore Events
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- CALENDAR -->
+
+            <div class="dashboard-card">
+
+                <h2>
+                    📅 Event Calendar
+                </h2>
+
+                <p>
+                    Check upcoming events and their dates.
+                </p>
+
+                <a href="/calendar"
+                   class="dashboard-btn">
+                    View Calendar
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h3>
+            Eventify
+        </h3>
+
+        <p>
+            Event Discovery & Management System
+        </p>
+
+        <p>
+            © 2026 Eventify. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
